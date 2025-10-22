@@ -28,13 +28,16 @@ jobs:
         run: |
           mkdir -p wheels
           wget -P wheels https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-client/onix_client-1.0.0-py3-none-any.whl
-          wget -P wheels https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-cli/onix_cli-0.0.3-py3-none-any.whl
+          wget -P wheels https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-cli/onix_cli-0.0.5-py3-none-any.whl
           pip install wheels/*
       
       - name: Build binaries
         run:
           onix-cli service build
-      
+        env:
+          ONIX_APPLICATION_ID: ${{ vars.ONIX_APPLICATION_ID }}
+          ONIX_SERVICE_NAME: ${{ vars.ONIX_SERVICE_NAME }}
+
       - name: Upload aritfacts & spec
         run:
           onix-cli service upload
@@ -43,3 +46,4 @@ jobs:
           ONIX_CLIENT_ID: ${{ secrets.ONIX_CLIENT_ID }}
           ONIX_SECRET_KEY: ${{ secrets.ONIX_SECRET_KEY }}
           ONIX_APPLICATION_ID: ${{ vars.ONIX_APPLICATION_ID }}
+          ONIX_SERVICE_NAME: ${{ vars.ONIX_SERVICE_NAME }}
