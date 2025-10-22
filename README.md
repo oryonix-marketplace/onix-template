@@ -1,2 +1,2 @@
 # onix-template
-Oryonix Template Repository
+Template repository for Oryonix Cloud Platform
