@@ -27,8 +27,13 @@ jobs:
       - name: Install Onix dependencies
         run: |
           mkdir -p wheels
-          wget -P wheels https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-client/onix_client-1.0.0-py3-none-any.whl
-          wget -P wheels https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-cli/onix_cli-0.0.5-py3-none-any.whl
+
+          ONIX_CLIENT_VERSION=$(wget -qO- https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-client/latest.txt | tr -d '[:space:]')
+          wget -P wheels https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-client/onix_client-${ONIX_CLIENT_VERSION}-py3-none-any.whl
+
+          ONIX_CLI_VERSION=$(wget -qO- https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-cli/latest.txt | tr -d '[:space:]')
+          wget -P wheels https://oryonix-cloud.s3.us-west-2.amazonaws.com/packages/onix-cli/onix_cli-${ONIX_CLI_VERSION}-py3-none-any.whl
+
           pip install wheels/*
       
       - name: Build binaries
