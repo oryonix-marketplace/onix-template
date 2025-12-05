@@ -40,6 +40,9 @@ jobs:
         run:
           onix-cli service build
         env:
+          ONIX_SERVER_URL: ${{ secrets.ONIX_SERVER_URL }}
+          ONIX_CLIENT_ID: ${{ secrets.ONIX_CLIENT_ID }}
+          ONIX_SECRET_KEY: ${{ secrets.ONIX_SECRET_KEY }}
           ONIX_APPLICATION_ID: ${{ vars.ONIX_APPLICATION_ID }}
           ONIX_SERVICE_NAME: ${{ vars.ONIX_SERVICE_NAME }}
 
