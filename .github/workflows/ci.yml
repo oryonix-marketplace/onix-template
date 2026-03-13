@@ -38,7 +38,7 @@ jobs:
       
       - name: Build binaries
         run:
-          onix-cli artifact build
+          onix artifact build
         env:
           ONIX_SERVER_URL: ${{ secrets.ONIX_SERVER_URL }}
           ONIX_CLIENT_ID: ${{ secrets.ONIX_CLIENT_ID }}
@@ -48,7 +48,7 @@ jobs:
 
       - name: Upload aritfacts & spec
         run:
-          onix-cli artifact upload
+          onix artifact upload
         env:
           ONIX_SERVER_URL: ${{ secrets.ONIX_SERVER_URL }}
           ONIX_CLIENT_ID: ${{ secrets.ONIX_CLIENT_ID }}
