@@ -3,15 +3,15 @@ A very basic hello-world program that invokes a compute function and returns
 a string along with result of the greet compute function.
 """
 
-import fc
+import onix
 
 
-@fc.compute
+@onix.compute
 def greet(arg: str):
     return f"Greetings, {arg}"
 
 
-@fc.flow
+@onix.flow
 def hello_world(arg: str):
     ret1 = greet(arg="Hi, Guest1")
 
