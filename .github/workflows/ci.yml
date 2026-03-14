@@ -46,7 +46,7 @@ jobs:
           ONIX_APPLICATION_ID: ${{ vars.ONIX_APPLICATION_ID }}
           ONIX_SERVICE_NAME: ${{ vars.ONIX_SERVICE_NAME }}
 
-      - name: Upload aritfacts & spec
+      - name: Upload artifacts & spec
         run:
           onix artifact upload
         env:
