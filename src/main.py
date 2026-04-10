@@ -1,12 +1,12 @@
 """
-A very basic hello-world program that invokes a compute function and returns
-a string along with result of the greet compute function.
+A very basic hello-world program that invokes a action function and returns
+a string along with result of the greet action function.
 """
 
 import onix
 
 
-@onix.compute
+@onix.action
 def greet(arg: str):
     return f"Greetings, {arg}"
 
@@ -17,5 +17,5 @@ def hello_world(arg: str):
 
     return (
         f"hello_world invoked with arg: {arg}. "
-        f"Greet compute returned: {ret1} "
+        f"Greet action returned: {ret1} "
     )
