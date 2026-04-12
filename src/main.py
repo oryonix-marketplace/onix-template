@@ -1,5 +1,5 @@
 """
-A very basic hello-world program that invokes a action function and returns
+A very basic hello-world program that invokes an action function and returns
 a string along with result of the greet action function.
 """
 
